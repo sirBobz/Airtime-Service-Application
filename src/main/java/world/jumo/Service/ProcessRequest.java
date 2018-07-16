@@ -1,22 +1,67 @@
 /**
- * 
+ * Receives the Airtime request  
+ * and sends to Africa's Talking API 
+ * this is through their API Class
  */
 package world.jumo.Service;
 
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 /**
- * @author dibon
+ * @author Bob Mwenda
  *
  */
 @Service
 public class ProcessRequest {
 
+	private final Logger logger = LogManager.getLogger(ProcessRequest.class);
+	private final String initiator_username = "";
+	private final String initiator_password = "";
+
 	public void SendRequest(Map<?, ?> resultMap) {
-		// TODO Auto-generated method stub
-		
+		JSONArray recipients = new JSONArray();
+
+		try {
+			recipients.put(new JSONObject()
+					.put("phoneNumber", "+254" + StringUtils.right((String) resultMap.get("phone_number"), 9))
+					.put("amount", "KES " + resultMap.get("amount")));
+		} catch (JSONException e1) {
+
+			e1.printStackTrace();
+		}
+
+		AfricasTalkingGateway gateway = new AfricasTalkingGateway(initiator_username, initiator_password);
+
+		try {
+			JSONArray results = gateway.sendAirtime(recipients.toString());
+
+			logger.info(results);
+
+			int length = results.length();
+			for (int i = 0; i < length; i++) {
+				JSONObject result = results.getJSONObject(i);
+
+				System.out.println(result.getString("status"));
+				System.out.println(result.getString("amount"));
+				System.out.println(result.getString("phoneNumber"));
+				System.out.println(result.getString("discount"));
+				System.out.println(result.getString("requestId"));
+
+				// Error message is important when the status is not Success
+				System.out.println(result.getString("errorMessage"));
+			}
+		} catch (Exception e) {
+			logger.error(e);
+		}
+
 	}
 
 }
