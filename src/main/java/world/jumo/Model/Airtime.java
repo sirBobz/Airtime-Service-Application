@@ -26,6 +26,11 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Table(name = "transactions")
 public class Airtime implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * @params
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
