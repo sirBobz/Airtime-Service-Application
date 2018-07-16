@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import world.jumo.Service.ProcessRequest;
 
@@ -21,6 +22,7 @@ public class DbPoller {
 	
 	private final Logger logger = LogManager.getLogger(DbPoller.class);
 	
+	@Autowired
 	public ProcessRequest processRequest;
 
 	public void handleJdbcMessage(List<Map> message) {
