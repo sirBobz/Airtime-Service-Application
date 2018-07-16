@@ -24,7 +24,7 @@ import org.hibernate.annotations.UpdateTimestamp;
  */
 @Entity
 @Table(name = "transactions")
-public class Airtime implements Serializable {
+public class AirtimeModel implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -76,7 +76,7 @@ public class Airtime implements Serializable {
 	 * @param created_at
 	 * @param updated_at
 	 */
-	public Airtime(long id, String amount, String phone_number, String request_id, Integer result_code,
+	public AirtimeModel(long id, String amount, String phone_number, String request_id, Integer result_code,
 			String result_desc, Integer status, String third_party_trans_id, Date transaction_time, Date deleted_at,
 			Date created_at, Date updated_at) {
 		this.id = id;
