@@ -298,7 +298,7 @@ public class AirtimeModel implements Serializable {
 		return "Airtime [id=" + id + ", " + (amount != null ? "amount=" + amount + ", " : "")
 				+ (phone_number != null ? "phone_number=" + phone_number + ", " : "")
 				+ (request_id != null ? "request_id=" + request_id + ", " : "")
-				+ (result_code != null ? "result_code=" + result_code + ", " : "")
+				+ (message != null ? "result_code=" + message + ", " : "")
 				+ (result_desc != null ? "result_desc=" + result_desc + ", " : "")
 				+ (status != null ? "status=" + status + ", " : "")
 				+ (third_party_trans_id != null ? "third_party_trans_id=" + third_party_trans_id + ", " : "")
