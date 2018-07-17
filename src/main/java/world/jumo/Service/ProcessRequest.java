@@ -32,7 +32,7 @@ public class ProcessRequest {
 	private AirtimeRepository airtimeRepository;
 
 	private final String initiator_username = "Dibon";
-	private final String initiator_password = "7bb50ca58757df358ee606bbede2a88f94453da50df6508123d901dd5face9b6";
+	private final String initiator_password = "";
 
 	public void SendRequest(Map<?, ?> resultMap) {
 
