@@ -6,6 +6,7 @@ package world.jumo.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import ke.co.statum.model.MpesaAccountBalance;
 import world.jumo.Model.AirtimeModel;
 
 
@@ -15,5 +16,8 @@ import world.jumo.Model.AirtimeModel;
  */
 @Repository
 public interface AirtimeRepository extends JpaRepository<AirtimeModel, Long> {
+	
+	@Override
+	AirtimeModel save(AirtimeModel model);
 
 }
