@@ -29,6 +29,7 @@ public class ProcessRequest {
 	private final String initiator_password = "";
 
 	public void SendRequest(Map<?, ?> resultMap) {
+		
 		JSONArray recipients = new JSONArray();
 
 		try {
@@ -37,7 +38,7 @@ public class ProcessRequest {
 					.put("amount", "KES " + resultMap.get("amount")));
 		} catch (JSONException e1) {
 
-			e1.printStackTrace();
+			logger.error(e1);
 		}
 
 		AfricasTalkingGateway gateway = new AfricasTalkingGateway(initiator_username, initiator_password);
@@ -50,7 +51,7 @@ public class ProcessRequest {
 			int length = results.length();
 			for (int i = 0; i < length; i++) {
 				JSONObject result = results.getJSONObject(i);
-				
+
 				AirtimeModel model = new AirtimeModel();
 				model.setResult_desc(result.getString("status"));
 				model.setDiscount(result.getString("discount"));
