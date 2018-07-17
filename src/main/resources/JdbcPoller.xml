@@ -13,11 +13,11 @@
 
 	<int:channel id="fromdb" />
 	<int:service-activator input-channel="fromdb"
-		ref="jdbcMessageHandler" />
+		ref="dbPoller" />
 	<int-jdbc:inbound-channel-adapter
 		channel="fromdb" data-source="dataSource"
 		query="SELECT * FROM transactions WHERE status = 0 limit 10"        
 		update="UPDATE transactions SET status = 1 where id in (:id)">
-		<int:poller fixed-delay="4000" />
+		<int:poller fixed-delay="400000" />
 	</int-jdbc:inbound-channel-adapter>
 </beans>

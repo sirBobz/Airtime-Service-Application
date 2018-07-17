@@ -37,6 +37,8 @@ public class AirtimeModel implements Serializable {
 	@Column
 	private String amount;
 	@Column
+	private String discount;
+	@Column
 	private String phone_number;
 	@Column
 	private String request_id;
@@ -60,6 +62,11 @@ public class AirtimeModel implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updated_at;
+	
+	
+	public AirtimeModel() {
+		
+	}
 	
 	
 	/**
@@ -94,6 +101,8 @@ public class AirtimeModel implements Serializable {
 	}
 
 
+
+
 	/**
 	 * @return the id
 	 */
@@ -101,13 +110,6 @@ public class AirtimeModel implements Serializable {
 		return id;
 	}
 
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
 
 
 	/**
@@ -117,14 +119,21 @@ public class AirtimeModel implements Serializable {
 		return amount;
 	}
 
-
+	
 	/**
-	 * @param amount the amount to set
+	 * @param discount the discount to set
 	 */
-	public void setAmount(String amount) {
-		this.amount = amount;
+	public void setDiscount(String discount) {
+		this.discount = discount;
 	}
-
+	
+	
+	/**
+	 * @return the discount
+	 */
+	public String getDiscount() {
+		return discount;
+	}
 
 	/**
 	 * @return the phone_number
@@ -134,12 +143,6 @@ public class AirtimeModel implements Serializable {
 	}
 
 
-	/**
-	 * @param phone_number the phone_number to set
-	 */
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
-	}
 
 
 	/**

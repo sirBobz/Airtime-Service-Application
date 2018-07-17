@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import world.jumo.Service.ProcessRequest;
 
@@ -18,6 +19,7 @@ import world.jumo.Service.ProcessRequest;
  * @author Bob Mwenda
  *
  */
+@Component
 public class DbPoller {
 	
 	private final Logger logger = LogManager.getLogger(DbPoller.class);

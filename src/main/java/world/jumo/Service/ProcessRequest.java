@@ -15,6 +15,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import world.jumo.Model.AirtimeModel;
+
 /**
  * @author Bob Mwenda
  *
@@ -48,15 +50,13 @@ public class ProcessRequest {
 			int length = results.length();
 			for (int i = 0; i < length; i++) {
 				JSONObject result = results.getJSONObject(i);
+				
+				AirtimeModel model = new AirtimeModel();
+				model.setResult_desc(result.getString("status"));
+				model.setDiscount(result.getString("discount"));
+				model.setThird_party_trans_id(result.getString("requestId"));
+				model.setDiscount(result.getString("errorMessage"));
 
-				System.out.println(result.getString("status"));
-				System.out.println(result.getString("amount"));
-				System.out.println(result.getString("phoneNumber"));
-				System.out.println(result.getString("discount"));
-				System.out.println(result.getString("requestId"));
-
-				// Error message is important when the status is not Success
-				System.out.println(result.getString("errorMessage"));
 			}
 		} catch (Exception e) {
 			logger.error(e);
