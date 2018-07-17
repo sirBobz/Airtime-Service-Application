@@ -43,9 +43,9 @@ public class AirtimeModel implements Serializable {
 	@Column
 	private String request_id;
 	@Column
-	private Integer result_code;
-	@Column
 	private String result_desc;
+	@Column
+	private String message;
 	@Column
 	private Integer status;
 	@Column
@@ -74,7 +74,7 @@ public class AirtimeModel implements Serializable {
 	 * @param amount
 	 * @param phone_number
 	 * @param request_id
-	 * @param result_code
+	 * @param message
 	 * @param result_desc
 	 * @param status
 	 * @param third_party_trans_id
@@ -83,14 +83,14 @@ public class AirtimeModel implements Serializable {
 	 * @param created_at
 	 * @param updated_at
 	 */
-	public AirtimeModel(long id, String amount, String phone_number, String request_id, Integer result_code,
+	public AirtimeModel(long id, String amount, String phone_number, String request_id, String message,
 			String result_desc, Integer status, String third_party_trans_id, Date transaction_time, Date deleted_at,
 			Date created_at, Date updated_at) {
 		this.id = id;
 		this.amount = amount;
 		this.phone_number = phone_number;
 		this.request_id = request_id;
-		this.result_code = result_code;
+		this.message = message;
 		this.result_desc = result_desc;
 		this.status = status;
 		this.third_party_trans_id = third_party_trans_id;
@@ -162,18 +162,19 @@ public class AirtimeModel implements Serializable {
 
 
 	/**
-	 * @return the result_code
+	 * @return the message
 	 */
-	public Integer getResult_code() {
-		return result_code;
+	public String getmessage() {
+		return message;
 	}
 
 
 	/**
-	 * @param result_code the result_code to set
+	 * @param message 
+	 * @param message the message to set
 	 */
-	public void setResult_code(Integer result_code) {
-		this.result_code = result_code;
+	public void setResult_code(String result_code, String message) {
+		this.message = message;
 	}
 
 
