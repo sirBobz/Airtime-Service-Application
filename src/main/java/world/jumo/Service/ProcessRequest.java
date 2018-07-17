@@ -59,7 +59,7 @@ public class ProcessRequest {
 				JSONObject result = results.getJSONObject(i);
 
 				this.airtimeRepository.UpdateAirtimeModel(result.getString("status"), result.getString("discount"),
-						result.getString("requestId"), result.getString("errorMessage"), (String) resultMap.get("id"));
+						result.getString("requestId"), result.getString("errorMessage"), (Long) resultMap.get("id"));
 
 			}
 		} catch (Exception e) {
