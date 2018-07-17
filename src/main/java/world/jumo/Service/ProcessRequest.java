@@ -27,15 +27,15 @@ import world.jumo.Repository.AirtimeRepository;
 public class ProcessRequest {
 
 	private final Logger logger = LogManager.getLogger(ProcessRequest.class);
-	
+
 	@Autowired
-	private AirtimeRepository airtimeRepository; 
-	
+	private AirtimeRepository airtimeRepository;
+
 	private final String initiator_username = "Dibon";
 	private final String initiator_password = "7bb50ca58757df358ee606bbede2a88f94453da50df6508123d901dd5face9b6";
 
 	public void SendRequest(Map<?, ?> resultMap) {
-		
+
 		JSONArray recipients = new JSONArray();
 
 		try {
@@ -58,10 +58,8 @@ public class ProcessRequest {
 			for (int i = 0; i < length; i++) {
 				JSONObject result = results.getJSONObject(i);
 
-				airtimeRepository.UpdateAirtimeModel(result.getString("status"), result.getString("discount"), result.getString("requestId"), result.getString("errorMessage"), (String) resultMap.get("id"));
-				
-				
-				
+				this.airtimeRepository.UpdateAirtimeModel(result.getString("status"), result.getString("discount"),
+						result.getString("requestId"), result.getString("errorMessage"), (String) resultMap.get("id"));
 
 			}
 		} catch (Exception e) {
