@@ -13,9 +13,11 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import world.jumo.Model.AirtimeModel;
+import world.jumo.Repository.AirtimeRepository;
 
 /**
  * @author Bob Mwenda
@@ -25,8 +27,12 @@ import world.jumo.Model.AirtimeModel;
 public class ProcessRequest {
 
 	private final Logger logger = LogManager.getLogger(ProcessRequest.class);
-	private final String initiator_username = "";
-	private final String initiator_password = "";
+	
+	@Autowired
+	private AirtimeRepository airtimeRepository; 
+	
+	private final String initiator_username = "Dibon";
+	private final String initiator_password = "7bb50ca58757df358ee606bbede2a88f94453da50df6508123d901dd5face9b6";
 
 	public void SendRequest(Map<?, ?> resultMap) {
 		
@@ -52,11 +58,10 @@ public class ProcessRequest {
 			for (int i = 0; i < length; i++) {
 				JSONObject result = results.getJSONObject(i);
 
-				AirtimeModel model = new AirtimeModel();
-				model.setResult_desc(result.getString("status"));
-				model.setDiscount(result.getString("discount"));
-				model.setThird_party_trans_id(result.getString("requestId"));
-				model.setDiscount(result.getString("errorMessage"));
+				airtimeRepository.UpdateAirtimeModel(result.getString("status"), result.getString("discount"), result.getString("requestId"), result.getString("errorMessage"), (String) resultMap.get("id"));
+				
+				
+				
 
 			}
 		} catch (Exception e) {
