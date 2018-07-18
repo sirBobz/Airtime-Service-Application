@@ -9,4 +9,10 @@ This is a Spring boot Framework web service that polls data from the database, p
 java version 1.8 
 
 
+### Set Up
+
+Set up the credentials on applications.properties
+
+
+
 
