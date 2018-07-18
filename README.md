@@ -11,7 +11,7 @@ java version 1.8
 
 ### Set Up
 
-Set up the credentials on applications.properties
+Set up the database credentials on applications.properties
 
 
 
