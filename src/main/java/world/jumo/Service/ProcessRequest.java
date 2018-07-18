@@ -16,7 +16,6 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import world.jumo.Model.AirtimeModel;
 import world.jumo.Repository.AirtimeRepository;
 
 /**
@@ -31,7 +30,7 @@ public class ProcessRequest {
 	@Autowired
 	private AirtimeRepository airtimeRepository;
 
-	private final String initiator_username = "Dibon";
+	private final String initiator_username = "";
 	private final String initiator_password = "";
 
 	public void SendRequest(Map<?, ?> resultMap) {
@@ -58,8 +57,8 @@ public class ProcessRequest {
 			for (int i = 0; i < length; i++) {
 				JSONObject result = results.getJSONObject(i);
 
-				this.airtimeRepository.UpdateAirtimeModel(result.getString("status"), result.getString("discount"),
-						result.getString("requestId"), result.getString("errorMessage"), (Long) resultMap.get("id"));
+				this.airtimeRepository.updateAirtimeResponse((Long) resultMap.get("id"), result.getString("requestId"),
+						result.getString("discount"), result.getString("errorMessage"), result.getString("status"));
 
 			}
 		} catch (Exception e) {

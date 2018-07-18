@@ -173,7 +173,7 @@ public class AirtimeModel implements Serializable {
 	 * @param message 
 	 * @param message the message to set
 	 */
-	public void setResult_code(String result_code, String message) {
+	public void setMessage(String message) {
 		this.message = message;
 	}
 
