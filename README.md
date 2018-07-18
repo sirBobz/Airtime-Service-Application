@@ -13,6 +13,8 @@ java version 1.8
 
 Set up the database credentials on applications.properties
 
+Set up the poll rate on JdbcPoller.xml. Default is 4 seconds.
+
 
 
 
