@@ -6,7 +6,7 @@ This is a Spring boot Framework web service that polls data from the database, p
 
 ### Requirements
 
-java version>1.8 
+java version 1.8 
 
 
 
